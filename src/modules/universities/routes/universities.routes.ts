@@ -22,10 +22,10 @@ universitysRouter.post(
   celebrate({
     [Segments.BODY]: {
       alpha_two_code: Joi.string().max(2).required(),
-      web_pages: Joi.array().items(Joi.string()),
+      web_pages: Joi.array().items(Joi.string().required()).required(),
       name: Joi.string().required(),
       country: Joi.string().required(),
-      domains: Joi.array().items(Joi.string()),
+      domains: Joi.array().items(Joi.string().required()).required(),
       state_province: Joi.string(),
     },
   }),
@@ -36,9 +36,9 @@ universitysRouter.put(
   '/:id',
   celebrate({
     [Segments.BODY]: {
-      web_pages: Joi.array().items(Joi.string()),
+      web_pages: Joi.array().items(Joi.string().required()).required(),
       name: Joi.string().required(),
-      domains: Joi.array().items(Joi.string()),
+      domains: Joi.array().items(Joi.string().required()).required(),
     },
     [Segments.PARAMS]: {
       id: Joi.required(),
