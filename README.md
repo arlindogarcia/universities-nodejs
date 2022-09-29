@@ -8,4 +8,16 @@ Após clonar o conteúdo, acesse o diretório e execute o comando para a instala
 ```
 yarn
 ```
-Após essa instalação execute a aplicação com o comando `yarn dev`. O servidor estará disponível no endereço: `http://localhost:3333`.
+
+Renomeie o arquivo `.env.example` para `.env`, no ubuntu utilize o comando mv
+
+Executar a aplicação em ambiente de desenvolvimento: `yarn dev`.
+
+Executar a aplicação em ambiente de produção: `yarn build`.
+
+Para executar a aplicação no ambiente de produção, execute:
+```
+node dist/shared/http/server.js
+```
+
+O servidor estará disponível no endereço: `http://localhost:3333`.
