@@ -5,6 +5,7 @@ import 'express-async-errors';
 import cors from 'cors';
 import AppError from '@shared/errors/AppError';
 import { errors } from 'celebrate';
+import rateLimiter from './middlewares/rateLimiter';
 
 class App {
   public server: Express;
@@ -19,6 +20,7 @@ class App {
   config() {
     this.server.use(cors());
     this.server.use(express.json());
+    this.server.use(rateLimiter);
   }
 
   middlewaresErrors() {
