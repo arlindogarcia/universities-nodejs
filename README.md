@@ -35,6 +35,28 @@ Query String `?country=&page=&limit=`
   - page = especificar qual página quer o retorno dos dados, padrão 1
   - limit = especificar quantos registros a api deve retornar por página, padrao 20
 
+Exemplo de retorno:
+```
+{
+	"docs": [
+		{
+			"_id": "6335c7bb018271107c70ed9f",
+			"name": "Universidad Atlantida Argentina",
+			"country": "Argentina"
+		},
+  ],
+	"totalDocs": 652,
+	"limit": 20,
+	"totalPages": 33,
+	"page": 1,
+	"pagingCounter": 1,
+	"hasPrevPage": false,
+	"hasNextPage": true,
+	"prevPage": null,
+	"nextPage": 2
+}
+```
+
 ## Rota de visualização - Método GET
 ```
 _base_url/universities/id
@@ -42,6 +64,24 @@ _base_url/universities/id
 ```
 Request param: id
   - id = Id do registro que precisa na busca
+
+Exemplo de retorno:
+```
+{
+	"name": "University Teste",
+	"alpha_two_code": "PR",
+	"state_province": "PR",
+	"country": "Brasil",
+	"domains": [
+		"teste.com.br"
+	],
+	"web_pages": [
+		"http://teste.com.br"
+	],
+	"_id": "6335cb3df3d07303f9db9fd4",
+	"__v": 0
+}
+```
 
 ## Rota de criação - Método POST
 ```
@@ -56,7 +96,7 @@ Request Body (JSON)
   - domains = Array de string, mínimo 1 item, obrigatório
   - state_province = String, não obrigatório
 
-Example:
+Exemplo de body:
 ```
 {
   "alpha_two_code": "PR",
@@ -69,6 +109,24 @@ Example:
     "teste.com.br"
   ],
   "state_province": "PR"
+}
+```
+
+Exemplo de retorno:
+```
+{
+	"name": "University Teste",
+	"alpha_two_code": "PR",
+	"state_province": "PR",
+	"country": "Brasil",
+	"domains": [
+		"teste.com.br"
+	],
+	"web_pages": [
+		"http://teste.com.br"
+	],
+	"_id": "6335cb3df3d07303f9db9fd4",
+	"__v": 0
 }
 ```
 
@@ -85,7 +143,7 @@ Request Body (JSON)
   - name = String, obrigatório
   - domains = Array de string, mínimo 1 item, obrigatório
 
-Example:
+Exemplo de body:
 ```
 {
   "web_pages": [
@@ -95,6 +153,24 @@ Example:
   "domains": [
     "teste.com.br"
   ],
+}
+```
+
+Exemplo de retorno:
+```
+{
+	"name": "University Teste",
+	"alpha_two_code": "PR",
+	"state_province": "PR",
+	"country": "Brasil",
+	"domains": [
+		"teste.com.br"
+	],
+	"web_pages": [
+		"http://teste.com.br"
+	],
+	"_id": "6335cb3df3d07303f9db9fd4",
+	"__v": 0
 }
 ```
 
