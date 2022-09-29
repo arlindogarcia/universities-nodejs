@@ -4,7 +4,7 @@ Faça um clone deste repositório e instale no seu ambiente de desenvolvimento
 https://github.com/arlindogarcia/bis2bis-universities.git
 ```
 
-Após clonar o conteúdo, acesse o diretório e execute o comando para a instalação das dependências
+Após clonar o conteúdo, acesse o diretório e execute o comando para a instalação das dependências com yarn
 ```
 yarn
 ```
