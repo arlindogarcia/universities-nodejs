@@ -3,6 +3,7 @@ import 'dotenv/config';
 import express, { Express, NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
+import routes from './routes';
 import AppError from '@shared/errors/AppError';
 import '@shared/mongoose';
 import { errors } from 'celebrate';
@@ -13,8 +14,8 @@ class App {
 
   constructor() {
     this.server = express();
-
     this.config();
+    this.routes();
     this.middlewaresErrors();
   }
 
@@ -47,6 +48,10 @@ class App {
         });
       },
     );
+  }
+
+  routes() {
+    this.server.use(routes);
   }
 }
 
