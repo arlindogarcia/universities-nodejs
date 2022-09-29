@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import CreateOrderService from '@modules/universities/services/CreateUniversityService';
+import DeleteUniversityService from '@modules/universities/services/DeleteUniversityService';
 import ListUniversityService from '@modules/universities/services/ListUniversityService';
 import ShowUniversityService from '@modules/universities/services/ShowUniversityService';
 import UpdateUniversityService from '@modules/universities/services/UpdateUniversityService';
@@ -74,6 +75,16 @@ export default class OrdersController {
       domains,
       name,
     });
+
+    return response.json(university);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const deleteUniversity = new DeleteUniversityService();
+
+    const university = await deleteUniversity.execute({ id });
 
     return response.json(university);
   }
