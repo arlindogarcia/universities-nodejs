@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import CreateOrderService from '@modules/universities/services/CreateUniversityService';
 import ListUniversityService from '@modules/universities/services/ListUniversityService';
 import ShowUniversityService from '@modules/universities/services/ShowUniversityService';
+import UpdateUniversityService from '@modules/universities/services/UpdateUniversityService';
 
 interface IRequestCreate {
   alpha_two_code: string;
@@ -10,6 +11,12 @@ interface IRequestCreate {
   country: string;
   domains: string[];
   state_province: string | null;
+}
+
+interface IRequestUpdate {
+  web_pages: string[];
+  domains: string[];
+  name: string;
 }
 
 export default class OrdersController {
@@ -50,6 +57,22 @@ export default class OrdersController {
       country,
       domains,
       state_province,
+    });
+
+    return response.json(university);
+  }
+
+  public async update(request: Request, response: Response): Promise<Response> {
+    const { web_pages, domains, name }: IRequestUpdate = request.body;
+    const { id } = request.params;
+
+    const updateUniversity = new UpdateUniversityService();
+
+    const university = await updateUniversity.execute({
+      id,
+      web_pages,
+      domains,
+      name,
     });
 
     return response.json(university);
