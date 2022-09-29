@@ -20,11 +20,23 @@ interface IRequestUpdate {
   name: string;
 }
 
+interface IRequestQuery {
+  country?: string;
+  page?: number;
+  limit?: number;
+}
+
 export default class OrdersController {
   public async index(request: Request, response: Response): Promise<Response> {
+    const { country, page, limit }: IRequestQuery = request.query;
+
     const listUniversities = new ListUniversityService();
 
-    const universities = await listUniversities.execute();
+    const universities = await listUniversities.execute({
+      filters: { country },
+      page,
+      limit,
+    });
 
     return response.json(universities);
   }

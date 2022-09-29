@@ -3,11 +3,11 @@ import 'dotenv/config';
 import express, { Express, NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
-import routes from './routes';
+import routes from '@shared/http/routes';
 import AppError from '@shared/errors/AppError';
 import '@shared/mongoose';
 import { errors } from 'celebrate';
-import rateLimiter from './middlewares/rateLimiter';
+import rateLimiter from '@shared/http/middlewares/rateLimiter';
 
 class App {
   public server: Express;
